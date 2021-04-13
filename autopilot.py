@@ -1,7 +1,7 @@
 import RPi.GPIO as gpio
 from time import sleep,time
 #from Tkinter import *
-from distance import distance, distance_rear
+from distance import distance_front, distance_rear
 import random
 
 
@@ -104,11 +104,11 @@ try:
         action = int(time()) % 6        # pick a random action
 
         if action in (0,2,3):           # forward moving actions
-            curDis = distance()
+            curDis = distance_front()
             i = 0
             while curDis > 30 and i < 30:   # repeat action until time or distance limit
                 action_list[action](tf)
-                curDis = distance()
+                curDis = distance_front()
                 i = i + 1
 
             if curDis < 30:     # move backward if distance less than 30 cm
