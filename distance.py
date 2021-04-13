@@ -2,7 +2,7 @@ import RPi.GPIO as gpio
 from time import sleep, time
 
 
-def distance(measure='cm'):
+def distance_front(measure='cm'):
     gpio.setmode(gpio.BOARD)
     gpio.setup(38, gpio.OUT)    # Orange wire
     gpio.setup(40, gpio.IN)     # Yellow wire
